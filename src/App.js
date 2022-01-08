@@ -1,7 +1,12 @@
 import React from "react";
 import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  Navigate,
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
 import "./App.css";
 import Header from "./components/header/header.component";
 import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
@@ -43,7 +48,17 @@ class App extends React.Component {
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             <Route path="/shop" element={<ShopPage />} />
-            <Route path="/signIn" element={<SignInAndSignUp />} />
+            <Route
+              exact
+              path="/signIn"
+              element={
+                this.props.currentUser ? (
+                  <Navigate to="/" />
+                ) : (
+                  <SignInAndSignUp />
+                )
+              }
+            />
           </Routes>
         </Router>
       </div>
@@ -51,7 +66,11 @@ class App extends React.Component {
   }
 }
 
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser,
+});
+
 const mappDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
-export default connect(null, mappDispatchToProps)(App);
+export default connect(mapStateToProps, mappDispatchToProps)(App);
