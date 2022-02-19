@@ -4,6 +4,7 @@ const INITIAL_STATE = {
       id: 1,
       title: "Hats",
       routeName: "hats",
+
       items: [
         {
           id: 1,
