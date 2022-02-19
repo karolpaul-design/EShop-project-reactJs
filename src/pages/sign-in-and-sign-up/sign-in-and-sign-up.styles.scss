@@ -3,4 +3,12 @@
     display: flex;
     justify-content: space-between;
     margin: 30px auto;
+
+    @media screen and (max-width: 850px){
+        width: unset;
+        display: unset;
+        margin: 0 15px;
+        padding: 20px;
+      }
+ 
 }

@@ -20,15 +20,21 @@
     & .content {
       opacity: 0.9;
     }
+
+  }
+  &:first-child {
+    margin-right: 7.5px;
   }
 
   &.large {
     height: 380px;
+    @media screen and (max-width: 800px){
+
+      height: 200px;}
+
   }
 
-  &:first-child {
-    margin-right: 7.5px;
-  }
+ 
 
   &:last-child {
     margin-left: 7.5px;
@@ -55,7 +61,7 @@
 
     .title {
       font-weight: bold;
-      margin: 0 6px 0;
+      margin-bottom: 6px;
       font-size: 22px;
       color: #4a4a4a;
     }
@@ -65,4 +71,10 @@
       font-size: 16px;
     }
   }
+  @media screen and (max-width: 800px){
+
+    height: 200px;
+  
+    
+}
 }

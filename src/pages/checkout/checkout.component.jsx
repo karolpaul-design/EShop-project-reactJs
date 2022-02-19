@@ -7,6 +7,14 @@ import {
   selectCartItemsTotal,
 } from "../../redux/cart/cart.selector";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
+import CheckoutForm from "../../components/stripe/stripe.component";
+import { loadStripe } from "@stripe/stripe-js";
+import {
+  CardElement,
+  Elements,
+  useStripe,
+  useElements,
+} from "@stripe/react-stripe-js";
 
 const CheckoutPage = ({ cartItems, total, ...otherProps }) => {
   return (
@@ -34,6 +42,8 @@ const CheckoutPage = ({ cartItems, total, ...otherProps }) => {
       <div className="total">
         <span>TOTAL: ${total}</span>
       </div>
+
+      <CheckoutForm price={total} />
     </div>
   );
 };

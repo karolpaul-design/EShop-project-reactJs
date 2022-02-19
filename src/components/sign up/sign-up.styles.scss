@@ -2,9 +2,18 @@
     display: flex;
     flex-direction: column;
     width: 380px;
-
+    
+      
     .title{
         margin:10px 0;
     }
-
+   
+    @media screen and (max-width: 800px){
+        width: unset;
+      margin: 0 23px;
+      .title{
+        margin:0;
+    }
+     
+    }
 }

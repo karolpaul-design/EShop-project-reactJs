@@ -6,19 +6,21 @@ import Header from "./components/header/header.component";
 import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
 import CheckoutPage from "./pages/checkout/checkout.component";
 
+import { GlobalStyle } from "./global.styles";
+
 import {
   Navigate,
   BrowserRouter as Router,
   Route,
   Routes,
 } from "react-router-dom";
-import "./App.css";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.action";
 import { selectCurrentUser } from "./redux/user/user.selector";
 import { createStructuredSelector } from "reselect";
+import CheckoutForm from "./components/stripe/stripe.component";
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
@@ -48,6 +50,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <GlobalStyle />
         <Router>
           <Header />
           <Routes>
